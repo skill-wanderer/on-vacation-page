@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Wanderer - On Vacation</title>
+    <link rel="icon" type="image/svg+xml" href="/skill-wanderer-favicon.svg">
+    <style>
+        :root {
+            --primary-orange: #FF6B35;
+            --deep-orange: #E85D25;
+            --dark-bg: #1a1a1a;
+            --darker-bg: #0f0f0f;
+            --light-text: #e0e0e0;
+            --accent-yellow: #FFD93D;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-hover: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--dark-bg);
+            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(255, 217, 61, 0.05) 0%, transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .maintenance-container {
+            background: rgba(26, 26, 26, 0.95);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .maintenance-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--primary-orange), transparent);
+            border-radius: 20px;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .maintenance-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-orange), var(--accent-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #ffffff;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .description {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .countdown-container {
+            background: linear-gradient(135deg, var(--primary-orange), var(--deep-orange));
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            color: white;
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .countdown-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .return-message {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            min-width: 80px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 1.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-orange));
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-orange);
+        }
+
+        .contact-title {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-text {
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-orange), var(--deep-orange));
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .maintenance-container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .countdown {
+                gap: 1rem;
+            }
+
+            .countdown-item {
+                min-width: 70px;
+                padding: 0.8rem;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Wandering Path Animation */
+        .wandering-path {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .path {
+            stroke: var(--primary-orange);
+            stroke-width: 2;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawPath 3s ease-out forwards;
+        }
+
+        @keyframes drawPath {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="maintenance-container fade-in">
+        
+        <div class="maintenance-icon pulse">🏖️</div>
+        
+        <h1>On Vacation</h1>
+        <p class="subtitle">Taking a well-deserved break!</p>
+        
+        <p class="description">
+            We've temporarily shut down our self-hosted server while I'm on vacation. To further our non-profit mission, 
+            I decided to self-host using older hardware to keep costs low, experiment with sustainable infrastructure, 
+            and make our educational mission more financially sustainable. Since this hardware can be unreliable when left 
+            unattended, we've decided to take the safe route and power down until I return. This ensures we don't risk any 
+            data issues or service interruptions while I'm away. Thanks for understanding - sometimes the most responsible 
+            thing is knowing when to take a break!
+        </p>
+
+        <div class="countdown-container">
+            <div class="countdown-title">📅 We'll be back on August 7, 2025</div>
+            <p class="return-message">
+                Thank you for your patience while we're away. The server will be back online when I return from vacation.
+            </p>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-title">Need immediate assistance?</div>
+            <div class="contact-text">
+                While I'm on vacation and the server is safely powered down, you can still reach me at 
+                <strong>quan.nguyen@skill-wanderer.com</strong> for any urgent questions. Response times might be a bit slower 
+                than usual, but I'll do my best to help!
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/company/skill-wanderer" class="social-link" title="Skill Wanderer Company LinkedIn" target="_blank" rel="noopener">🏢</a>
+            <a href="https://www.linkedin.com/in/quan-nguyen-jimmy-youhei/" class="social-link" title="Quan Nguyen Personal LinkedIn" target="_blank" rel="noopener">💼</a>
+            <a href="mailto:quan.nguyen@skill-wanderer.com" class="social-link" title="Email Support">📧</a>
+        </div>
+
+        <!-- Wandering Path SVG -->
+        <svg class="wandering-path" viewBox="0 0 1200 150">
+            <path class="path" d="M0,100 Q300,50 600,80 T1200,60" />
+        </svg>
+    </div>
+
+    <script>
+        // Add interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to social links
+            const socialLinks = document.querySelectorAll('.social-link');
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.1)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+
+        // Add a subtle animation to the maintenance icon
+        setInterval(() => {
+            const icon = document.querySelector('.maintenance-icon');
+            icon.style.transform = 'rotate(10deg)';
+            setTimeout(() => {
+                icon.style.transform = 'rotate(-10deg)';
+            }, 250);
+            setTimeout(() => {
+                icon.style.transform = 'rotate(0deg)';
+            }, 500);
+        }, 3000);
+    </script>
+</body>
+</html>
