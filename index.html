@@ -148,6 +148,33 @@
             content: '⚡ ';
         }
 
+        .server-image-container {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .server-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .server-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 35px rgba(255, 184, 0, 0.2);
+        }
+
+        .image-caption {
+            color: #ffffff;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 0.75rem;
+            font-style: italic;
+        }
+
         .countdown-container {
             background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
             border-radius: 15px;
@@ -396,6 +423,12 @@
                 <li><strong>Total Capacity:</strong> 16 CPUs and 64GB RAM</li>
             </ul>
         </div>
+
+        <div class="server-image-container">
+            <img src="server.jpg" alt="My self-hosted server setup at home" class="server-image">
+            <p class="image-caption">📸 My humble home data center powering Skill-Wanderer</p>
+        </div>
+
         <p class="description">
             Our Kubernetes (K8s) infrastructure is heavy. It consistently consumes a minimum of 4 CPUs and 16GB RAM, with <span class="highlight">peaks reaching 6 CPUs and 30GB of RAM</span>.
         </p>
