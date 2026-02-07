@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Wanderer - Hardware Upgrade</title>
+    <title>Skill Wanderer - Tet Holiday Break</title>
     <link rel="icon" type="image/svg+xml" href="/skill-wanderer-favicon.svg">
     <style>
         :root {
             --primary-orange: #FF6B35;
             --deep-orange: #E85D25;
+            --primary-red: #D4213D;
+            --deep-red: #B31B32;
             --dark-bg: #1a1a1a;
             --darker-bg: #0f0f0f;
             --light-text: #e0e0e0;
             --accent-yellow: #FFD93D;
+            --accent-gold: #FFB800;
             --card-bg: rgba(255, 255, 255, 0.05);
             --card-hover: rgba(255, 255, 255, 0.08);
         }
@@ -26,8 +29,8 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background-color: var(--dark-bg);
-            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 50%, rgba(255, 217, 61, 0.05) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 50%, rgba(212, 33, 61, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(255, 184, 0, 0.1) 0%, transparent 50%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -39,10 +42,10 @@
 
         .maintenance-container {
             background: rgba(26, 26, 26, 0.95);
-            border: 1px solid rgba(255, 107, 53, 0.3);
+            border: 1px solid rgba(212, 33, 61, 0.4);
             border-radius: 20px;
             padding: 3rem;
-            max-width: 600px;
+            max-width: 800px;
             width: 90%;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
@@ -59,7 +62,7 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(135deg, var(--primary-orange), transparent);
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-gold), transparent);
             border-radius: 20px;
             opacity: 0.3;
             z-index: -1;
@@ -80,10 +83,10 @@
         }
 
         h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             font-weight: 800;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary-orange), var(--accent-yellow));
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-gold));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -91,7 +94,7 @@
 
         .subtitle {
             color: #ffffff;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             margin-bottom: 2rem;
             font-weight: 500;
             opacity: 0.95;
@@ -99,19 +102,59 @@
 
         .description {
             color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            text-align: left;
+        }
+
+        .section-title {
+            color: var(--accent-gold);
             font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            text-align: left;
+        }
+
+        .highlight {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .tech-specs {
+            background: rgba(255, 184, 0, 0.1);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            text-align: left;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .tech-specs ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tech-specs li {
+            padding: 0.3rem 0;
+            color: #ffffff;
             opacity: 0.9;
         }
 
+        .tech-specs li::before {
+            content: '⚡ ';
+        }
+
         .countdown-container {
-            background: linear-gradient(135deg, var(--primary-orange), var(--deep-orange));
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
             border-radius: 15px;
             padding: 2rem;
             margin-bottom: 2rem;
             color: white;
-            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 20px rgba(212, 33, 61, 0.3);
         }
 
         .countdown-title {
@@ -122,8 +165,9 @@
 
         .return-message {
             margin-top: 1rem;
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1.05rem;
+            opacity: 0.95;
+            line-height: 1.6;
         }
 
         .countdown {
@@ -175,7 +219,7 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             padding: 1.5rem;
-            border-left: 4px solid var(--primary-orange);
+            border-left: 4px solid var(--primary-red);
         }
 
         .contact-title {
@@ -188,6 +232,28 @@
         .contact-text {
             color: #ffffff;
             opacity: 0.9;
+        }
+
+        .looking-ahead {
+            background: rgba(255, 184, 0, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-gold);
+            text-align: left;
+        }
+
+        .looking-ahead-title {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .looking-ahead-text {
+            color: #ffffff;
+            opacity: 0.9;
+            line-height: 1.7;
         }
 
         .social-links {
@@ -203,18 +269,18 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--primary-orange), var(--deep-orange));
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
             color: white;
             text-decoration: none;
             border-radius: 50%;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 15px rgba(212, 33, 61, 0.3);
         }
 
         .social-link:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 10px 25px rgba(212, 33, 61, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -285,7 +351,7 @@
         }
 
         .path {
-            stroke: var(--primary-orange);
+            stroke: var(--primary-red);
             stroke-width: 2;
             fill: none;
             stroke-dasharray: 1000;
@@ -303,38 +369,67 @@
 <body>
     <div class="maintenance-container fade-in">
         
-        <div class="maintenance-icon pulse">⚙️</div>
+        <div class="maintenance-icon pulse">🧧</div>
         
-        <h1>Hardware Upgrade in Progress</h1>
-        <p class="subtitle">Upgrading our infrastructure for better performance!</p>
+        <h1>Tet, Technical Grit, and the Reality of Bootstrapping</h1>
+        <p class="subtitle">Chúc Mừng Năm Mới! 🎊 Happy Lunar New Year!</p>
         
         <p class="description">
-            We've temporarily shut down our self-hosted server to perform a major hardware upgrade. To further our non-profit mission, 
-            I decided to self-host using older hardware to keep costs low, experiment with sustainable infrastructure, 
-            and make our educational mission more financially sustainable. We're now upgrading to more reliable hardware that will 
-            provide better performance and stability for our users. This upgrade ensures we can offer improved service quality 
-            and reduce future downtime. Thanks for understanding - sometimes investing in better infrastructure is the best path forward!
+            As Tet approaches, Hanoi is transforming. Like most families, mine will be traveling to meet relatives and celebrate the New Year. For me, this means making a difficult but necessary "off" switch for Skill-Wanderer.
+        </p>
+
+        <div class="section-title">🎯 The Sacrifice Behind the Mission</div>
+        <p class="description">
+            Building a non-profit from the ground up requires more than just code; it requires real sacrifice. I moved away from a high-salary corporate career to build this platform and support my partners through their own "hardship to victory" journeys.
+            <br><br>
+            While I am proud of our progress, the reality is that my current income is nowhere near my previous salary. <span class="highlight">Expensive cloud hosting—which our platform desperately needs—is a luxury we simply cannot afford yet.</span>
+        </p>
+
+        <div class="section-title">💻 Engineering on a Budget: 16 CPUs and 64GB at Home</div>
+        <p class="description">
+            To keep Skill-Wanderer alive and free, I've had to be my own data center. I run a robust self-hosted environment in a corner of my home using:
+        </p>
+        <div class="tech-specs">
+            <ul>
+                <li><strong>A 1Gbps home fiber connection</strong> (Hanoi has incredible internet!)</li>
+                <li><strong>An Orange Pi 5 Plus</strong> and an old laptop (which has already survived one fan replacement)</li>
+                <li><strong>Total Capacity:</strong> 16 CPUs and 64GB RAM</li>
+            </ul>
+        </div>
+        <p class="description">
+            Our Kubernetes (K8s) infrastructure is heavy. It consistently consumes a minimum of 4 CPUs and 16GB RAM, with <span class="highlight">peaks reaching 6 CPUs and 30GB of RAM</span>.
         </p>
 
         <div class="countdown-container">
-            <div class="countdown-title">📅 We'll be back on August 18, 2025</div>
+            <div class="countdown-title">🌙 Why We Are Going Dark (Feb 7 – Feb 22)</div>
             <p class="return-message">
-                Thank you for your patience while we upgrade our infrastructure. The server will be back online with improved performance once the hardware upgrade is complete.
+                Because I am self-hosting on consumer hardware that requires physical maintenance and supervision, I cannot leave it running while I am away. For <strong>fire safety and hardware longevity</strong>, I will be shutting down the Skill-Wanderer servers for the duration of the holiday.
+                <br><br>
+                There are "free" cloud tiers out there, but our <strong>30GB RAM peaks</strong> are far beyond what any free service provides. Moving this much horsepower to the cloud right now would create a bill we aren't ready to pay.
+            </p>
+        </div>
+
+        <div class="looking-ahead">
+            <div class="looking-ahead-title">🚀 Looking Ahead</div>
+            <p class="looking-ahead-text">
+                This shutdown is a temporary pause. After the holiday, my priority is to find a sustainable path forward through <strong>grants, donations, or fiscal hosting</strong> so that we never have to "go dark" for a holiday again.
+                <br><br>
+                I'll be back and Skill-Wanderer will be online again on <strong>February 22nd</strong>.
             </p>
         </div>
 
         <div class="contact-info">
-            <div class="contact-title">Need immediate assistance?</div>
+            <div class="contact-title">🧧✨ Wishing everyone a safe, warm, and prosperous Lunar New Year!</div>
             <div class="contact-text">
-                While our server is offline for the hardware upgrade, you can still reach me at 
-                <strong>quan.nguyen@skill-wanderer.com</strong> for any urgent questions. Response times might be a bit slower 
-                than usual due to the ongoing upgrade work, but I'll do my best to help!
+                While our server is offline for the Tet holiday, you can still reach me at 
+                <strong>quan.nguyen@skill-wanderer.com</strong> for any urgent questions. Response times might be slower 
+                than usual as I'll be spending time with family, but I'll do my best to help!
             </div>
         </div>
 
         <div class="social-links">
             <a href="https://www.linkedin.com/company/skill-wanderer" class="social-link" title="Skill Wanderer Company LinkedIn" target="_blank" rel="noopener">🏢</a>
-            <a href="https://www.linkedin.com/in/quan-nguyen-jimmy-youhei/" class="social-link" title="Quan Nguyen Personal LinkedIn" target="_blank" rel="noopener">💼</a>
+            <a href="https://www.linkedin.com/in/quan-nguyen-skill-wanderer/" class="social-link" title="Quan Nguyen Personal LinkedIn" target="_blank" rel="noopener">💼</a>
             <a href="mailto:quan.nguyen@skill-wanderer.com" class="social-link" title="Email Support">📧</a>
         </div>
 
@@ -360,16 +455,13 @@
             });
         });
 
-        // Add a subtle animation to the maintenance icon
+        // Add a subtle animation to the icon
         setInterval(() => {
             const icon = document.querySelector('.maintenance-icon');
-            icon.style.transform = 'rotate(10deg)';
+            icon.style.transform = 'scale(1.1)';
             setTimeout(() => {
-                icon.style.transform = 'rotate(-10deg)';
-            }, 250);
-            setTimeout(() => {
-                icon.style.transform = 'rotate(0deg)';
-            }, 500);
+                icon.style.transform = 'scale(1)';
+            }, 300);
         }, 3000);
     </script>
 </body>
